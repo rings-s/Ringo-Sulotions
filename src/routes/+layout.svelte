@@ -5,8 +5,6 @@
   import Navigation from '$lib/components/Navigation.svelte';
   // import Footer from '$lib/components/Footer.svelte';
   import { onMount } from 'svelte';
-  import { gsap } from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
   import { browser } from '$app/environment';
 
   let ready = false;
@@ -18,6 +16,8 @@
 
   onMount(async () => {
     if (browser) {
+      const { gsap } = await import('gsap');
+      const { ScrollTrigger } = await import('gsap/ScrollTrigger');
       gsap.registerPlugin(ScrollTrigger);
       await waitLocale();
       ready = true;

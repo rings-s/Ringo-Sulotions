@@ -1,12 +1,12 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-    import { gsap } from 'gsap';
     import { _ } from 'svelte-i18n';
 
     const serviceKeys = ['static', 'webapp', 'saas', 'api'];
     const icons = ['⚡', '🚀', '☁️', '🔌'];
     
-    onMount(() => {
+    onMount(async () => {
+      const { gsap } = await import('gsap');
       gsap.fromTo('.service-card',
         { opacity: 0, y: 50, rotateY: -30 },
         { 

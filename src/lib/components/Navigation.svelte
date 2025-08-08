@@ -1,7 +1,6 @@
 <script lang="ts">
   import { page } from '$app/stores';
   import { onMount } from 'svelte';
-  import { gsap } from 'gsap';
   import { locale, _ } from 'svelte-i18n';
 
   let isMenuOpen = false;
@@ -14,7 +13,8 @@
     { label: 'nav.contact', href: '#contact' }
   ];
   
-  onMount(() => {
+  onMount(async () => {
+    const { gsap } = await import('gsap');
     // Animate logo on load
     gsap.fromTo('.logo-svg', 
       { opacity: 0, scale: 0.5, rotation: -180 },

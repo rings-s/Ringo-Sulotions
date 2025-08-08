@@ -1,9 +1,9 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import { _ } from 'svelte-i18n';
-    import { gsap } from 'gsap';
     
-    onMount(() => {
+    onMount(async () => {
+      const { gsap } = await import('gsap');
       gsap.fromTo('.about-content > *',
         { opacity: 0, y: 50 },
         { opacity: 1, y: 0, duration: 1, stagger: 0.2, ease: 'power3.out' }

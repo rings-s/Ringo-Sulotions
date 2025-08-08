@@ -1,15 +1,14 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { _, locale } from 'svelte-i18n';
-  import { gsap } from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
   import ThreeBackground from '$lib/components/ThreeBackground.svelte';
   import CustomCursor from '$lib/components/CustomCursor.svelte';
   import ServiceCard from '$lib/components/ServiceCard.svelte';
   
-  gsap.registerPlugin(ScrollTrigger);
-  
-  onMount(() => {
+  onMount(async () => {
+    const { gsap } = await import('gsap');
+    const { ScrollTrigger } = await import('gsap/ScrollTrigger');
+    gsap.registerPlugin(ScrollTrigger);
     // Advanced hero animations timeline
     const masterTl = gsap.timeline();
     

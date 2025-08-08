@@ -1,11 +1,11 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import * as THREE from 'three';
-  import { gsap } from 'gsap';
   
   let canvas: HTMLCanvasElement;
   
-  onMount(() => {
+  onMount(async () => {
+    const { gsap } = await import('gsap');
+    const THREE = await import('three');
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
