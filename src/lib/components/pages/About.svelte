@@ -75,13 +75,7 @@
       
       h1 {
         margin-bottom: 3rem;
-        
-        .gradient-text {
-          background: var(--gradient);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
+
       }
       
       .about-intro {
@@ -91,14 +85,7 @@
           font-size: 2.5rem;
           margin-bottom: 0.5rem;
         }
-        
-        .role {
-          color: var(--primary);
-          font-size: 1.2rem;
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 2px;
-        }
+
       }
       
       .about-story {

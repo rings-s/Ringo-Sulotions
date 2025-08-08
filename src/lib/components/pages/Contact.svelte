@@ -105,13 +105,7 @@
       &-info {
         h1 {
           margin-bottom: 1.5rem;
-          
-          .gradient-text {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-          }
+
         }
         
         > p {
