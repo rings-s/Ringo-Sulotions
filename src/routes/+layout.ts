@@ -1,12 +1,14 @@
 import { browser } from '$app/environment';
-import { locale, waitLocale } from 'svelte-i18n';
-import '$lib/i18n';
+import { loadTranslations } from '$lib/i18n';
+import type { LayoutLoad } from './$types';
 
-export const load = async ({ data }) => {
-	const lang = data.lang || (browser ? window.navigator.language : 'en');
-	
-	locale.set(lang);
-	await waitLocale(lang);
+export const load: LayoutLoad = async () => {
+    let lang = 'en';
+    if (browser) {
+        lang = window.navigator.language || 'en';
+    }
 
-	return { lang };
+    await loadTranslations(lang);
+
+    return { lang };
 };
