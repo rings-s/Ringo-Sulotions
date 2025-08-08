@@ -1,14 +1,9 @@
 <script lang="ts">
 	import { _ } from 'svelte-i18n';
     import { onMount } from 'svelte';
-    import emailjs from '@emailjs/browser';
     import { gsap } from 'gsap';
     
     onMount(() => {
-      // Initialize EmailJS with your public key
-      // Initialize EmailJS with your public key from environment variables
-      emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
-      
       gsap.fromTo('.contact-content > *',
         { opacity: 0, x: -50 },
         { opacity: 1, x: 0, duration: 1, stagger: 0.1, ease: 'power3.out' }
@@ -47,7 +42,7 @@
             <div class="form-group">
               <input 
                 type="text" 
-                
+                name="name"
                 placeholder={$_('contact.form_name')}
                 required
                 class="form-input"
@@ -57,7 +52,7 @@
             <div class="form-group">
               <input 
                 type="email" 
-                
+                name="email"
                 placeholder={$_('contact.form_email')}
                 required
                 class="form-input"
@@ -66,7 +61,7 @@
             
             <div class="form-group">
               <textarea 
-                
+                name="message"
                 placeholder={$_('contact.form_message')}
                 rows="6"
                 required
