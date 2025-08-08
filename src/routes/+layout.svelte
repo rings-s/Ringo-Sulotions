@@ -16,24 +16,29 @@
     document.documentElement.dir = $locale === 'ar' ? 'rtl' : 'ltr';
   }
 
-  gsap.registerPlugin(ScrollTrigger);
-
   onMount(async () => {
-    await waitLocale();
-    ready = true;
-    // Smooth scroll behavior
-    gsap.to('body', {
-      scrollBehavior: 'smooth'
-    });
+    if (browser) {
+      gsap.registerPlugin(ScrollTrigger);
+      await waitLocale();
+      ready = true;
+      // Smooth scroll behavior
+      gsap.to('body', {
+        scrollBehavior: 'smooth'
+      });
+    }
   });
 </script>
   
   <Navigation />
   <main>
-	{#if !$isLoading && ready}
-	  <slot />
+	{#if browser}
+	  {#if !$isLoading && ready}
+		<slot />
+	  {:else}
+		<div class="loading">Loading...</div>
+	  {/if}
 	{:else}
-	  <div class="loading">Loading...</div>
+	  <slot />
 	{/if}
   </main>
   

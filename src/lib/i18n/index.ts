@@ -9,16 +9,20 @@ register('ar', () => import('./ar.json'));
 function getInitialLocale() {
   if (!browser) return defaultLocale;
   
-  // Check localStorage first
-  const stored = localStorage.getItem('locale');
-  if (stored && ['en', 'ar'].includes(stored)) {
-    return stored;
-  }
-  
-  // Check browser language
-  const browserLang = window.navigator.language;
-  if (browserLang.startsWith('ar')) {
-    return 'ar';
+  try {
+    // Check localStorage first
+    const stored = localStorage.getItem('locale');
+    if (stored && ['en', 'ar'].includes(stored)) {
+      return stored;
+    }
+    
+    // Check browser language
+    const browserLang = window.navigator.language;
+    if (browserLang.startsWith('ar')) {
+      return 'ar';
+    }
+  } catch (error) {
+    console.warn('Error getting initial locale:', error);
   }
   
   return defaultLocale;
@@ -33,7 +37,11 @@ init({
 if (browser) {
   locale.subscribe((value) => {
     if (value) {
-      localStorage.setItem('locale', value);
+      try {
+        localStorage.setItem('locale', value);
+      } catch (error) {
+        console.warn('Error saving locale:', error);
+      }
     }
   });
 }
