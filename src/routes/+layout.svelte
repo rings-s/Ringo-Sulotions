@@ -1,13 +1,10 @@
 <script lang="ts">
   import '$lib/i18n'; // Import to initialize
-  import { locale, waitLocale, isLoading } from 'svelte-i18n';
+  import { locale } from 'svelte-i18n';
   import '../app.scss';
   import Navigation from '$lib/components/Navigation.svelte';
-  // import Footer from '$lib/components/Footer.svelte';
   import { onMount } from 'svelte';
   import { browser } from '$app/environment';
-
-  let ready = false;
 
   $: if (browser && $locale) {
     document.documentElement.lang = $locale;
@@ -16,30 +13,24 @@
 
   onMount(async () => {
     if (browser) {
-      const { gsap } = await import('gsap');
-      const { ScrollTrigger } = await import('gsap/ScrollTrigger');
-      gsap.registerPlugin(ScrollTrigger);
-      await waitLocale();
-      ready = true;
-      // Smooth scroll behavior
-      gsap.to('body', {
-        scrollBehavior: 'smooth'
-      });
+      try {
+        const { gsap } = await import('gsap');
+        const { ScrollTrigger } = await import('gsap/ScrollTrigger');
+        gsap.registerPlugin(ScrollTrigger);
+        // Smooth scroll behavior
+        gsap.to('body', {
+          scrollBehavior: 'smooth'
+        });
+      } catch (error) {
+        console.warn('GSAP loading failed:', error);
+      }
     }
   });
 </script>
   
   <Navigation />
   <main>
-	{#if browser}
-	  {#if !$isLoading && ready}
-		<slot />
-	  {:else}
-		<div class="loading">Loading...</div>
-	  {/if}
-	{:else}
-	  <slot />
-	{/if}
+	<slot />
   </main>
   
   <style lang="scss">
