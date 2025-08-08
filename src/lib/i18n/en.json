@@ -1,0 +1,90 @@
+{
+  "contact": {
+    "title": "Let's <span class=\"gradient-text\">Connect</span>",
+    "subtitle": "Ready to bring your digital vision to life? Get in touch and let's discuss your project.",
+    "phone": "Phone",
+    "email": "Email",
+    "location": "Location",
+    "location_text": "Available Worldwide",
+    "form_name": "Your Name",
+    "form_email": "Your Email",
+    "form_message": "Your Message",
+    "form_submit": "Send Message",
+    "form_submitting": "Sending...",
+    "success_message": "Message sent successfully!",
+    "error_message": "Failed to send message. Please try again."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "home": {
+    "subtitle": "Welcome to",
+    "title_part1": "Ringo",
+    "title_part2": "Solutions",
+    "description": "Crafting digital experiences that push boundaries.<br/>Where innovation meets exceptional design.",
+    "cta_project": "Start Your Project",
+    "cta_services": "Explore Services",
+    "experience_number": "5+",
+    "experience_label": "Years Experience",
+    "scroll": "Scroll",
+    "what_we_do": "What We Do",
+    "services": {
+      "static": {
+        "title": "Static Websites",
+        "description": "Lightning-fast, SEO-optimized static sites"
+      },
+      "webapp": {
+        "title": "Web Applications",
+        "description": "Dynamic, scalable web apps with modern frameworks"
+      },
+      "saas": {
+        "title": "SaaS Solutions",
+        "description": "Complete software-as-a-service platforms"
+      },
+      "api": {
+        "title": "REST APIs",
+        "description": "Robust, secure API development & integration"
+      }
+    }
+  },
+  "about": {
+    "title": "About <span class=\"gradient-text\">Us</span>",
+    "intro_name": "Ahmed Bashir",
+    "intro_role": "Founder & Lead Developer",
+    "story1": "Welcome to Ringo Solutions, a startup agency dedicated to crafting exceptional digital experiences. As a Sudanese developer with over 5 years of experience in web development, I've honed my skills across various technologies and frameworks.",
+    "story2": "This journey began with a simple belief: technology should empower businesses to reach their full potential. Today, Ringo Solutions stands as a testament to that vision, delivering cutting-edge solutions that drive growth and innovation.",
+    "expertise_title": "Our Expertise",
+    "experience_label": "Years Experience",
+    "projects_label": "Projects Completed",
+    "satisfaction_label": "Client Satisfaction",
+    "stack_title": "Technology Stack"
+  },
+  "services": {
+    "title": "Our <span class=\"gradient-text\">Services</span>",
+    "subtitle": "Comprehensive solutions for your digital needs",
+    "static": {
+      "title": "Static Websites",
+      "description": "Fast, secure, and SEO-optimized static sites built with modern frameworks.",
+      "features": ["Lightning-fast load times", "SEO optimization", "Responsive design", "CDN deployment"]
+    },
+    "webapp": {
+      "title": "Web Applications",
+      "description": "Dynamic, interactive web applications that scale with your business.",
+      "features": ["Custom functionality", "Real-time updates", "User authentication", "Database integration"]
+    },
+    "saas": {
+      "title": "SaaS Solutions",
+      "description": "Complete software-as-a-service platforms tailored to your needs.",
+      "features": ["Subscription management", "Multi-tenancy", "Analytics dashboard", "API integration"]
+    },
+    "api": {
+      "title": "REST APIs",
+      "description": "Robust and secure API development for seamless data exchange.",
+      "features": ["RESTful architecture", "Authentication & security", "Documentation", "Third-party integration"]
+    },
+    "cta": "Get Started →"
+  }
+}
