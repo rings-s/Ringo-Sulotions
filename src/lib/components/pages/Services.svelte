@@ -1,33 +1,10 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import { gsap } from 'gsap';
-    
-    const services = [
-      {
-        title: 'Static Websites',
-        description: 'Fast, secure, and SEO-optimized static sites built with modern frameworks.',
-        features: ['Lightning-fast load times', 'SEO optimization', 'Responsive design', 'CDN deployment'],
-        icon: '⚡'
-      },
-      {
-        title: 'Web Applications',
-        description: 'Dynamic, interactive web applications that scale with your business.',
-        features: ['Custom functionality', 'Real-time updates', 'User authentication', 'Database integration'],
-        icon: '🚀'
-      },
-      {
-        title: 'SaaS Solutions',
-        description: 'Complete software-as-a-service platforms tailored to your needs.',
-        features: ['Subscription management', 'Multi-tenancy', 'Analytics dashboard', 'API integration'],
-        icon: '☁️'
-      },
-      {
-        title: 'REST APIs',
-        description: 'Robust and secure API development for seamless data exchange.',
-        features: ['RESTful architecture', 'Authentication & security', 'Documentation', 'Third-party integration'],
-        icon: '🔌'
-      }
-    ];
+    import { _ } from 'svelte-i18n';
+
+    const serviceKeys = ['static', 'webapp', 'saas', 'api'];
+    const icons = ['⚡', '🚀', '☁️', '🔌'];
     
     onMount(() => {
       gsap.fromTo('.service-card',
@@ -51,22 +28,22 @@
   <section class="services">
     <div class="container">
       <div class="services-header">
-        <h1>Our <span class="gradient-text">Services</span></h1>
-        <p>Comprehensive solutions for your digital needs</p>
+        <h1>{@html $_('services.title')}</h1>
+        <p>{$_('services.subtitle')}</p>
       </div>
       
       <div class="services-grid">
-        {#each services as service, index}
-          <div class="service-card" style="--delay: {index * 0.1}s">
-            <div class="service-icon">{service.icon}</div>
-            <h3>{service.title}</h3>
-            <p>{service.description}</p>
+        {#each serviceKeys as key, i (key)}
+          <div class="service-card" style="--delay: {i * 0.1}s">
+            <div class="service-icon">{icons[i]}</div>
+            <h3>{$_(`services.${key}.title`)}</h3>
+            <p>{$_(`services.${key}.description`)}</p>
             <ul class="service-features">
-              {#each service.features as feature}
+              {#each Array.isArray($_(`services.${key}.features`)) ? $_(`services.${key}.features`, { returnObjects: true }) : [] as feature}
                 <li>{feature}</li>
               {/each}
             </ul>
-            <a href="/contact" class="service-cta">Get Started →</a>
+            <a href="#contact" class="service-cta">{$_('services.cta')}</a>
           </div>
         {/each}
       </div>

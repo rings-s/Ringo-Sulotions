@@ -38,7 +38,7 @@
               <span class="label">{$_('about.experience_label')}</span>
             </div>
             <div class="expertise-item">
-              <span class="number">50+</span>
+              <span class="number">3</span>
               <span class="label">{$_('about.projects_label')}</span>
             </div>
             <div class="expertise-item">
@@ -51,12 +51,12 @@
         <div class="tech-stack">
           <h3>{$_('about.stack_title')}</h3>
           <div class="tech-icons">
-            <div class="tech-item">SvelteKit</div>
-            <div class="tech-item">TypeScript</div>
-            <div class="tech-item">GSAP</div>
-            <div class="tech-item">Three.js</div>
-            <div class="tech-item">REST APIs</div>
-            <div class="tech-item">Node.js</div>
+            <div class="tech-item">JavaScript</div>
+            <div class="tech-item">Python</div>
+            <div class="tech-item">Rest Apis</div>
+            <div class="tech-item">Data Visualization</div>
+            <div class="tech-item">Data Analysis</div>
+            <div class="tech-item">Matrix and Kpis</div>
           </div>
         </div>
       </div>

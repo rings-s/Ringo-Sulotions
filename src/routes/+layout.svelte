@@ -1,42 +1,54 @@
 <script lang="ts">
-	import '$lib/i18n'; // Import to initialize
-	import { init, locale, _ } from 'svelte-i18n';
-	import '../app.scss';
-	import Navigation from '$lib/components/Navigation.svelte';
-	// import Footer from '$lib/components/Footer.svelte';
-	import { onMount } from 'svelte';
-	import { gsap } from 'gsap';
-	import { ScrollTrigger } from 'gsap/ScrollTrigger';
-	
-	init({
-		fallbackLocale: 'en',
-		initialLocale: 'en'
-	});
+  import '$lib/i18n'; // Import to initialize
+  import { locale, waitLocale, isLoading } from 'svelte-i18n';
+  import '../app.scss';
+  import Navigation from '$lib/components/Navigation.svelte';
+  // import Footer from '$lib/components/Footer.svelte';
+  import { onMount } from 'svelte';
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import { browser } from '$app/environment';
 
-	$: {
-		if (typeof document !== 'undefined') {
-			document.documentElement.dir = locale === 'ar' ? 'rtl' : 'ltr';
-		}
-	}
+  let ready = false;
 
-	gsap.registerPlugin(ScrollTrigger);
-	
-	onMount(() => {
-	  // Smooth scroll behavior
-	  gsap.to('body', {
-		scrollBehavior: 'smooth'
-	  });
-	});
-  </script>
+  $: if (browser && $locale) {
+    document.documentElement.lang = $locale;
+    document.documentElement.dir = $locale === 'ar' ? 'rtl' : 'ltr';
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  onMount(async () => {
+    await waitLocale();
+    ready = true;
+    // Smooth scroll behavior
+    gsap.to('body', {
+      scrollBehavior: 'smooth'
+    });
+  });
+</script>
   
   <Navigation />
   <main>
-	<slot />
+	{#if !$isLoading && ready}
+	  <slot />
+	{:else}
+	  <div class="loading">Loading...</div>
+	{/if}
   </main>
   
   <style lang="scss">
 	main {
 	  min-height: 100vh;
 	  overflow-x: hidden;
+	}
+	
+	.loading {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  min-height: 100vh;
+	  color: var(--light);
+	  font-size: 1.2rem;
 	}
   </style>
