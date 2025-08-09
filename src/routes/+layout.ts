@@ -6,16 +6,26 @@ export const load: LayoutLoad = async () => {
     let lang = 'en';
     if (browser) {
         try {
-            lang = window.navigator.language || 'en';
+            lang = window.navigator.language?.split('-')[0] || 'en';
+            // Only use supported languages
+            if (!['en', 'ar'].includes(lang)) {
+                lang = 'en';
+            }
         } catch (e) {
             lang = 'en';
         }
     }
 
-    await loadTranslations(lang);
+    try {
+        await loadTranslations(lang);
+    } catch (e) {
+        console.warn('Failed to load translations, falling back to en');
+        await loadTranslations('en');
+        lang = 'en';
+    }
 
     return { lang };
 };
 
 export const prerender = true;
-export const ssr = true;
+export const ssr = false;
