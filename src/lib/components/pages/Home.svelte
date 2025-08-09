@@ -381,6 +381,23 @@
     overflow: hidden;
     padding-top: 6rem;
     
+    @media (max-width: 1024px) {
+      padding-top: 5rem;
+      min-height: 90vh;
+    }
+    
+    @media (max-width: 640px) {
+      padding-top: 4rem;
+      min-height: 85vh;
+      padding-bottom: 2rem;
+    }
+    
+    @media (max-width: 480px) {
+      padding-top: 3rem;
+      padding-bottom: 1rem;
+      min-height: 80vh;
+    }
+    
     &-grid-pattern {
       position: absolute;
       top: 0;
@@ -401,10 +418,20 @@
       align-items: center;
       z-index: 2;
       position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
       
       @media (max-width: 1024px) {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 3rem;
+        padding: 0 1.5rem;
+      }
+      
+      @media (max-width: 768px) {
+        padding: 0 1rem;
+        gap: 2rem;
       }
     }
     
@@ -421,6 +448,12 @@
       font-size: 0.875rem;
       margin-bottom: 2rem;
       position: relative;
+      
+      @media (max-width: 640px) {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+        gap: 0.5rem;
+      }
       
       .badge-pulse {
         position: absolute;
@@ -443,15 +476,36 @@
     &-title {
       margin-bottom: 2rem;
       
+      @media (max-width: 640px) {
+        margin-bottom: 1.5rem;
+      }
+      
+      @media (max-width: 480px) {
+        margin-bottom: 1rem;
+      }
+      
       .title-line {
         overflow: hidden;
         
+        @media (max-width: 480px) {
+          line-height: 1.1;
+        }
+        
         .title-word {
           display: inline-block;
-          font-size: clamp(2rem, 6vw, 7rem);
+          font-size: clamp(1.8rem, 8vw, 7rem);
           font-weight: 900;
           line-height: 1;
           letter-spacing: -0.02em;
+          
+          @media (max-width: 640px) {
+            font-size: clamp(1.5rem, 10vw, 4rem);
+          }
+          
+          @media (max-width: 480px) {
+            font-size: clamp(1.25rem, 12vw, 3rem);
+            letter-spacing: -0.01em;
+          }
         }
       }
       
@@ -479,7 +533,7 @@
     }
     
     &-description {
-      font-size: clamp(1.125rem, 2vw, 1.375rem);
+      font-size: clamp(1rem, 2.5vw, 1.375rem);
       margin-bottom: 3rem;
       max-width: 600px;
       line-height: 1.7;
@@ -488,6 +542,21 @@
       @media (max-width: 1024px) {
         margin: 0 auto 3rem;
       }
+      
+      @media (max-width: 640px) {
+        margin-bottom: 2rem;
+        font-size: clamp(0.9rem, 3vw, 1.125rem);
+        line-height: 1.6;
+        max-width: 500px;
+      }
+      
+      @media (max-width: 480px) {
+        margin-bottom: 1.5rem;
+        font-size: clamp(0.85rem, 4vw, 1rem);
+        line-height: 1.5;
+        max-width: 400px;
+        padding: 0 0.5rem;
+      }
     }
     
     &-cta {
@@ -495,9 +564,21 @@
       gap: 1.5rem;
       margin-bottom: 3rem;
       
+      @media (max-width: 1024px) {
+        justify-content: center;
+      }
+      
       @media (max-width: 640px) {
         flex-direction: column;
         align-items: stretch;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+      
+      @media (max-width: 480px) {
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
       }
     }
     
@@ -515,11 +596,29 @@
         margin: 0 auto;
       }
       
+      @media (max-width: 640px) {
+        gap: 1.5rem;
+        padding: 1rem 1.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      @media (max-width: 480px) {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        text-align: center;
+      }
+      
       .stat-item {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 0.25rem;
+        
+        @media (max-width: 480px) {
+          min-width: auto;
+        }
         
         .stat-number {
           font-size: 1.75rem;
@@ -528,6 +627,14 @@
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
+          
+          @media (max-width: 640px) {
+            font-size: 1.5rem;
+          }
+          
+          @media (max-width: 480px) {
+            font-size: 1.25rem;
+          }
           
           &::after {
             content: '+';
@@ -540,6 +647,10 @@
           text-transform: uppercase;
           letter-spacing: 0.05em;
           white-space: nowrap;
+          
+          @media (max-width: 640px) {
+            font-size: 0.65rem;
+          }
         }
       }
       
@@ -547,6 +658,16 @@
         width: 1px;
         height: 30px;
         background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1), transparent);
+        
+        @media (max-width: 640px) {
+          height: 20px;
+        }
+        
+        @media (max-width: 480px) {
+          width: 30px;
+          height: 1px;
+          background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+        }
       }
     }
     
@@ -625,6 +746,22 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+    justify-content: center;
+    
+    @media (max-width: 640px) {
+      padding: 0.875rem 1.5rem;
+      font-size: 0.875rem;
+      gap: 0.5rem;
+      min-height: 48px;
+    }
+    
+    @media (max-width: 480px) {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.8rem;
+      width: 100%;
+      max-width: 280px;
+      margin: 0 auto;
+    }
     
     &-primary {
       background: var(--gradient);
@@ -708,11 +845,24 @@
     align-items: center;
     gap: 0.75rem;
     
+    @media (max-width: 1024px) {
+      bottom: 1.5rem;
+    }
+    
+    @media (max-width: 640px) {
+      bottom: 1rem;
+      display: none;
+    }
+    
     span {
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--gray);
+      
+      @media (max-width: 768px) {
+        font-size: 0.625rem;
+      }
     }
     
     .scroll-mouse {
