@@ -359,27 +359,58 @@
 <style lang="scss">
   .hero {
     min-height: 100vh;
+    min-height: 100dvh; // Modern dynamic viewport height
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
-    padding-top: 6rem;
+    padding: clamp(3rem, 8vh, 6rem) 0 clamp(1rem, 4vh, 3rem);
     
-    @media (max-width: 1024px) {
-      padding-top: 5rem;
-      min-height: 90vh;
+    // Large screens (1200px+)
+    @media (min-width: 1200px) {
+      padding-top: 6rem;
+      min-height: 100vh;
     }
     
-    @media (max-width: 640px) {
+    // Medium-Large screens (1024px - 1199px)
+    @media (max-width: 1199px) and (min-width: 1024px) {
+      padding-top: 5rem;
+      min-height: 95vh;
+    }
+    
+    // Medium screens (768px - 1023px)
+    @media (max-width: 1023px) and (min-width: 768px) {
+      padding-top: 4.5rem;
+      min-height: 90vh;
+      padding-bottom: 2rem;
+    }
+    
+    // Small-Medium screens (640px - 767px)
+    @media (max-width: 767px) and (min-width: 640px) {
       padding-top: 4rem;
       min-height: 85vh;
       padding-bottom: 2rem;
     }
     
-    @media (max-width: 480px) {
-      padding-top: 3rem;
-      padding-bottom: 1rem;
+    // Small screens (480px - 639px)
+    @media (max-width: 639px) and (min-width: 480px) {
+      padding-top: 3.5rem;
       min-height: 80vh;
+      padding-bottom: 1.5rem;
+    }
+    
+    // Extra small screens (320px - 479px)
+    @media (max-width: 479px) {
+      padding-top: 3rem;
+      min-height: 75vh;
+      padding-bottom: 1rem;
+    }
+    
+    // Handle very small screens and landscape orientation
+    @media (max-height: 500px) and (orientation: landscape) {
+      min-height: 100vh;
+      padding-top: 2rem;
+      padding-bottom: 1rem;
     }
     
     &-grid-pattern {
@@ -391,52 +422,119 @@
       background-image: 
         linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
-      background-size: 50px 50px;
+      background-size: clamp(30px, 8vw, 50px) clamp(30px, 8vw, 50px);
       pointer-events: none;
+      
+      // Large screens (1200px+)
+      @media (min-width: 1200px) {
+        background-size: 50px 50px;
+      }
+      
+      // Medium screens (768px - 1199px)
+      @media (max-width: 1199px) and (min-width: 768px) {
+        background-size: 40px 40px;
+      }
+      
+      // Small screens (320px - 767px)
+      @media (max-width: 767px) {
+        background-size: 30px 30px;
+        opacity: 0.7;
+      }
     }
     
     .container {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+      gap: clamp(2rem, 6vw, 4rem);
       align-items: center;
       z-index: 2;
       position: relative;
-      max-width: 1200px;
+      max-width: min(1200px, 95vw);
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 clamp(1rem, 4vw, 2rem);
+      width: 100%;
       
-      @media (max-width: 1024px) {
+      // Large screens (1200px+)
+      @media (min-width: 1200px) {
+        gap: 4rem;
+        padding: 0 2rem;
+      }
+      
+      // Medium-Large screens (1024px - 1199px)
+      @media (max-width: 1199px) and (min-width: 1024px) {
+        gap: 3.5rem;
+        padding: 0 1.75rem;
+      }
+      
+      // Medium screens (768px - 1023px) - Switch to single column
+      @media (max-width: 1023px) {
         grid-template-columns: 1fr;
         text-align: center;
         gap: 3rem;
         padding: 0 1.5rem;
+        max-width: 100%;
       }
       
-      @media (max-width: 768px) {
-        padding: 0 1rem;
+      // Small-Medium screens (640px - 767px)
+      @media (max-width: 767px) {
+        gap: 2.5rem;
+        padding: 0 1.25rem;
+      }
+      
+      // Small screens (480px - 639px)
+      @media (max-width: 639px) {
         gap: 2rem;
+        padding: 0 1rem;
+      }
+      
+      // Extra small screens (320px - 479px)
+      @media (max-width: 479px) {
+        gap: 1.5rem;
+        padding: 0 0.75rem;
       }
     }
     
     &-badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.75rem;
-      padding: 0.75rem 1.5rem;
+      gap: clamp(0.5rem, 1.5vw, 0.75rem);
+      padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(1rem, 3vw, 1.5rem);
       background: rgba(99, 102, 241, 0.1);
+      backdrop-filter: blur(10px);
       border: 1px solid rgba(99, 102, 241, 0.2);
       border-radius: 100px;
       color: var(--primary);
       font-weight: 600;
-      font-size: 0.875rem;
-      margin-bottom: 2rem;
+      font-size: clamp(0.75rem, 2vw, 0.875rem);
+      margin-bottom: clamp(1.5rem, 4vw, 2rem);
       position: relative;
       
-      @media (max-width: 640px) {
-        padding: 0.5rem 1rem;
+      // Large screens (1200px+)
+      @media (min-width: 1200px) {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.875rem;
+        gap: 0.75rem;
+      }
+      
+      // Medium screens (768px - 1199px)
+      @media (max-width: 1199px) and (min-width: 768px) {
+        padding: 0.625rem 1.25rem;
         font-size: 0.8rem;
+        gap: 0.625rem;
+      }
+      
+      // Small screens (480px - 767px)
+      @media (max-width: 767px) {
+        padding: 0.5rem 1rem;
+        font-size: 0.775rem;
         gap: 0.5rem;
+      }
+      
+      // Extra small screens (320px - 479px)
+      @media (max-width: 479px) {
+        padding: 0.4rem 0.875rem;
+        font-size: 0.75rem;
+        gap: 0.4rem;
       }
       
       .badge-pulse {
@@ -482,13 +580,42 @@
           line-height: 1;
           letter-spacing: -0.02em;
           
-          @media (max-width: 640px) {
-            font-size: clamp(1.5rem, 10vw, 4rem);
+          // Large screens (1200px+)
+          @media (min-width: 1200px) {
+            font-size: clamp(4rem, 6vw, 7rem);
           }
           
-          @media (max-width: 480px) {
-            font-size: clamp(1.25rem, 12vw, 3rem);
+          // Medium-Large screens (1024px - 1199px)
+          @media (max-width: 1199px) and (min-width: 1024px) {
+            font-size: clamp(3.5rem, 7vw, 5.5rem);
+          }
+          
+          // Medium screens (768px - 1023px)
+          @media (max-width: 1023px) and (min-width: 768px) {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+          }
+          
+          // Small-Medium screens (640px - 767px)
+          @media (max-width: 767px) and (min-width: 640px) {
+            font-size: clamp(2rem, 9vw, 3.5rem);
+          }
+          
+          // Small screens (480px - 639px)
+          @media (max-width: 639px) and (min-width: 480px) {
+            font-size: clamp(1.75rem, 10vw, 3rem);
+            letter-spacing: -0.015em;
+          }
+          
+          // Extra small screens (320px - 479px)
+          @media (max-width: 479px) {
+            font-size: clamp(1.5rem, 12vw, 2.5rem);
             letter-spacing: -0.01em;
+          }
+          
+          // Handle very small screens
+          @media (max-width: 360px) {
+            font-size: clamp(1.25rem, 14vw, 2rem);
+            letter-spacing: 0;
           }
         }
       }
@@ -518,48 +645,106 @@
     
     &-description {
       font-size: clamp(1rem, 2.5vw, 1.375rem);
-      margin-bottom: 3rem;
-      max-width: 600px;
+      margin-bottom: clamp(2rem, 5vw, 3rem);
+      max-width: min(600px, 90vw);
       line-height: 1.7;
       color: var(--gray);
       
-      @media (max-width: 1024px) {
-        margin: 0 auto 3rem;
+      // Large screens (1200px+)
+      @media (min-width: 1200px) {
+        font-size: 1.375rem;
+        margin-bottom: 3rem;
+        max-width: 600px;
       }
       
-      @media (max-width: 640px) {
-        margin-bottom: 2rem;
-        font-size: clamp(0.9rem, 3vw, 1.125rem);
-        line-height: 1.6;
+      // Medium-Large screens (1024px - 1199px)
+      @media (max-width: 1199px) and (min-width: 1024px) {
+        font-size: clamp(1.125rem, 2vw, 1.25rem);
+        margin: 0 auto 2.5rem;
+        max-width: 550px;
+      }
+      
+      // Medium screens (768px - 1023px)
+      @media (max-width: 1023px) and (min-width: 768px) {
+        font-size: clamp(1rem, 2.2vw, 1.125rem);
+        margin: 0 auto 2.25rem;
         max-width: 500px;
+        line-height: 1.65;
       }
       
-      @media (max-width: 480px) {
-        margin-bottom: 1.5rem;
-        font-size: clamp(0.85rem, 4vw, 1rem);
-        line-height: 1.5;
+      // Small-Medium screens (640px - 767px)
+      @media (max-width: 767px) and (min-width: 640px) {
+        font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+        margin: 0 auto 2rem;
+        max-width: 450px;
+        line-height: 1.6;
+      }
+      
+      // Small screens (480px - 639px)
+      @media (max-width: 639px) and (min-width: 480px) {
+        font-size: clamp(0.9rem, 3vw, 1.05rem);
+        margin: 0 auto 1.75rem;
         max-width: 400px;
+        line-height: 1.55;
         padding: 0 0.5rem;
+      }
+      
+      // Extra small screens (320px - 479px)
+      @media (max-width: 479px) {
+        font-size: clamp(0.85rem, 4vw, 1rem);
+        margin: 0 auto 1.5rem;
+        max-width: 350px;
+        line-height: 1.5;
+        padding: 0 0.75rem;
       }
     }
     
     &-cta {
       display: flex;
-      gap: 1.5rem;
-      margin-bottom: 3rem;
+      gap: clamp(0.75rem, 3vw, 1.5rem);
+      margin-bottom: clamp(2rem, 5vw, 3rem);
+      flex-wrap: wrap;
       
-      @media (max-width: 1024px) {
-        justify-content: center;
+      // Large screens (1200px+)
+      @media (min-width: 1200px) {
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+        justify-content: flex-start;
       }
       
-      @media (max-width: 640px) {
-        flex-direction: column;
-        align-items: stretch;
+      // Medium-Large screens (1024px - 1199px)
+      @media (max-width: 1199px) and (min-width: 1024px) {
+        justify-content: center;
+        gap: 1.25rem;
+        margin-bottom: 2.5rem;
+      }
+      
+      // Medium screens (768px - 1023px)
+      @media (max-width: 1023px) and (min-width: 768px) {
+        justify-content: center;
+        gap: 1.125rem;
+        margin-bottom: 2.25rem;
+      }
+      
+      // Small-Medium screens (640px - 767px)
+      @media (max-width: 767px) and (min-width: 640px) {
+        flex-direction: row;
+        justify-content: center;
         gap: 1rem;
         margin-bottom: 2rem;
       }
       
-      @media (max-width: 480px) {
+      // Small screens (480px - 639px)
+      @media (max-width: 639px) and (min-width: 480px) {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.875rem;
+        margin-bottom: 1.75rem;
+      }
+      
+      // Extra small screens (320px - 479px)
+      @media (max-width: 479px) {
+        flex-direction: column;
         align-items: center;
         gap: 0.75rem;
         margin-bottom: 1.5rem;
@@ -569,29 +754,58 @@
     &-stats {
       display: inline-flex;
       align-items: center;
-      gap: 2.5rem;
-      padding: 1.5rem 2.5rem;
+      gap: clamp(1rem, 4vw, 2.5rem);
+      padding: clamp(1rem, 3vw, 1.5rem) clamp(1.5rem, 5vw, 2.5rem);
       background: rgba(255, 255, 255, 0.02);
       backdrop-filter: blur(10px);
       border-radius: 100px;
       border: 1px solid rgba(255, 255, 255, 0.05);
       
-      @media (max-width: 1024px) {
-        margin: 0 auto;
+      // Large screens (1200px+)
+      @media (min-width: 1200px) {
+        gap: 2.5rem;
+        padding: 1.5rem 2.5rem;
       }
       
-      @media (max-width: 640px) {
+      // Medium-Large screens (1024px - 1199px)
+      @media (max-width: 1199px) and (min-width: 1024px) {
+        margin: 0 auto;
+        gap: 2.25rem;
+        padding: 1.4rem 2.25rem;
+      }
+      
+      // Medium screens (768px - 1023px)
+      @media (max-width: 1023px) and (min-width: 768px) {
+        margin: 0 auto;
+        gap: 2rem;
+        padding: 1.3rem 2rem;
+      }
+      
+      // Small-Medium screens (640px - 767px)
+      @media (max-width: 767px) and (min-width: 640px) {
+        margin: 0 auto;
+        gap: 1.75rem;
+        padding: 1.2rem 1.75rem;
+      }
+      
+      // Small screens (480px - 639px)
+      @media (max-width: 639px) and (min-width: 480px) {
+        margin: 0 auto;
         gap: 1.5rem;
-        padding: 1rem 1.5rem;
+        padding: 1.1rem 1.5rem;
         flex-wrap: wrap;
         justify-content: center;
+        max-width: 400px;
       }
       
-      @media (max-width: 480px) {
+      // Extra small screens (320px - 479px)
+      @media (max-width: 479px) {
+        margin: 0 auto;
         flex-direction: column;
         gap: 1rem;
         padding: 1rem;
         text-align: center;
+        max-width: 300px;
       }
       
       .stat-item {
@@ -605,18 +819,40 @@
         }
         
         .stat-number {
-          font-size: 1.75rem;
+          font-size: clamp(1.25rem, 3vw, 1.75rem);
           font-weight: 900;
           background: var(--gradient);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
           
-          @media (max-width: 640px) {
+          // Large screens (1200px+)
+          @media (min-width: 1200px) {
+            font-size: 1.75rem;
+          }
+          
+          // Medium-Large screens (1024px - 1199px)
+          @media (max-width: 1199px) and (min-width: 1024px) {
+            font-size: 1.65rem;
+          }
+          
+          // Medium screens (768px - 1023px)
+          @media (max-width: 1023px) and (min-width: 768px) {
+            font-size: 1.6rem;
+          }
+          
+          // Small-Medium screens (640px - 767px)
+          @media (max-width: 767px) and (min-width: 640px) {
             font-size: 1.5rem;
           }
           
-          @media (max-width: 480px) {
+          // Small screens (480px - 639px)
+          @media (max-width: 639px) and (min-width: 480px) {
+            font-size: 1.4rem;
+          }
+          
+          // Extra small screens (320px - 479px)
+          @media (max-width: 479px) {
             font-size: 1.25rem;
           }
           
@@ -626,14 +862,44 @@
         }
         
         .stat-label {
-          font-size: 0.75rem;
+          font-size: clamp(0.6rem, 1.5vw, 0.75rem);
           color: var(--gray);
           text-transform: uppercase;
           letter-spacing: 0.05em;
           white-space: nowrap;
           
-          @media (max-width: 640px) {
+          // Large screens (1200px+)
+          @media (min-width: 1200px) {
+            font-size: 0.75rem;
+          }
+          
+          // Medium-Large screens (1024px - 1199px)
+          @media (max-width: 1199px) and (min-width: 1024px) {
+            font-size: 0.7rem;
+          }
+          
+          // Medium screens (768px - 1023px)
+          @media (max-width: 1023px) and (min-width: 768px) {
+            font-size: 0.675rem;
+          }
+          
+          // Small-Medium screens (640px - 767px)
+          @media (max-width: 767px) and (min-width: 640px) {
             font-size: 0.65rem;
+          }
+          
+          // Small screens (480px - 639px)
+          @media (max-width: 639px) and (min-width: 480px) {
+            font-size: 0.625rem;
+            white-space: normal;
+            text-align: center;
+          }
+          
+          // Extra small screens (320px - 479px)
+          @media (max-width: 479px) {
+            font-size: 0.6rem;
+            white-space: normal;
+            text-align: center;
           }
         }
       }
@@ -657,12 +923,23 @@
     
     &-visual {
       position: relative;
-      height: 600px;
+      height: clamp(400px, 50vw, 600px);
       display: flex;
       align-items: center;
       justify-content: center;
       
-      @media (max-width: 1024px) {
+      // Large screens (1200px+)
+      @media (min-width: 1200px) {
+        height: 600px;
+      }
+      
+      // Medium-Large screens (1024px - 1199px)
+      @media (max-width: 1199px) and (min-width: 1024px) {
+        height: 550px;
+      }
+      
+      // Hide on medium and smaller screens for better mobile UX
+      @media (max-width: 1023px) {
         display: none;
       }
       
@@ -688,14 +965,26 @@
         
         .badge-float {
           position: absolute;
-          padding: 0.5rem 1rem;
+          padding: clamp(0.4rem, 1vw, 0.5rem) clamp(0.8rem, 2vw, 1rem);
           background: rgba(99, 102, 241, 0.1);
           backdrop-filter: blur(10px);
           border: 1px solid rgba(99, 102, 241, 0.2);
           border-radius: 50px;
-          font-size: 0.75rem;
+          font-size: clamp(0.65rem, 1.2vw, 0.75rem);
           font-weight: 600;
           color: var(--primary);
+          
+          // Large screens (1200px+)
+          @media (min-width: 1200px) {
+            padding: 0.5rem 1rem;
+            font-size: 0.75rem;
+          }
+          
+          // Medium-Large screens (1024px - 1199px)
+          @media (max-width: 1199px) and (min-width: 1024px) {
+            padding: 0.45rem 0.9rem;
+            font-size: 0.7rem;
+          }
           
           &.badge-1 {
             top: 20%;
@@ -720,28 +1009,68 @@
   }
   
   .btn {
-    padding: 1rem 2rem;
+    padding: clamp(0.75rem, 2vw, 1rem) clamp(1.25rem, 4vw, 2rem);
     border-radius: 100px;
     font-weight: 600;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: clamp(0.5rem, 1.5vw, 0.75rem);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
     justify-content: center;
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    min-height: 48px;
     
-    @media (max-width: 640px) {
-      padding: 0.875rem 1.5rem;
-      font-size: 0.875rem;
-      gap: 0.5rem;
+    // Large screens (1200px+)
+    @media (min-width: 1200px) {
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      gap: 0.75rem;
+      min-height: 50px;
+    }
+    
+    // Medium-Large screens (1024px - 1199px)
+    @media (max-width: 1199px) and (min-width: 1024px) {
+      padding: 0.9rem 1.8rem;
+      font-size: 0.925rem;
+      gap: 0.7rem;
+      min-height: 49px;
+    }
+    
+    // Medium screens (768px - 1023px)
+    @media (max-width: 1023px) and (min-width: 768px) {
+      padding: 0.875rem 1.6rem;
+      font-size: 0.9rem;
+      gap: 0.625rem;
       min-height: 48px;
     }
     
-    @media (max-width: 480px) {
+    // Small-Medium screens (640px - 767px)
+    @media (max-width: 767px) and (min-width: 640px) {
+      padding: 0.85rem 1.5rem;
+      font-size: 0.875rem;
+      gap: 0.6rem;
+      min-height: 48px;
+    }
+    
+    // Small screens (480px - 639px)
+    @media (max-width: 639px) and (min-width: 480px) {
+      padding: 0.8rem 1.4rem;
+      font-size: 0.85rem;
+      gap: 0.55rem;
+      min-height: 47px;
+      width: 100%;
+      max-width: 300px;
+    }
+    
+    // Extra small screens (320px - 479px)
+    @media (max-width: 479px) {
       padding: 0.75rem 1.25rem;
       font-size: 0.8rem;
+      gap: 0.5rem;
+      min-height: 46px;
       width: 100%;
       max-width: 280px;
       margin: 0 auto;
@@ -773,6 +1102,14 @@
         
         .btn-icon {
           transform: translateX(4px);
+        }
+      }
+      
+      // Improve touch targets for mobile
+      @media (hover: none) and (pointer: coarse) {
+        &:active {
+          transform: translateY(0);
+          box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
         }
       }
     }
@@ -810,6 +1147,18 @@
           opacity: 1;
         }
       }
+      
+      // Improve touch targets for mobile
+      @media (hover: none) and (pointer: coarse) {
+        &:active {
+          transform: translateY(0);
+          border-color: rgba(99, 102, 241, 0.3);
+          
+          .btn-bg {
+            opacity: 0.8;
+          }
+        }
+      }
     }
     
     .btn-icon {
@@ -821,31 +1170,56 @@
   
   .scroll-indicator {
     position: absolute;
-    bottom: 2rem;
+    bottom: clamp(1rem, 4vh, 2rem);
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.75rem;
+    gap: clamp(0.5rem, 1.5vw, 0.75rem);
     
-    @media (max-width: 1024px) {
-      bottom: 1.5rem;
+    // Large screens (1200px+)
+    @media (min-width: 1200px) {
+      bottom: 2rem;
+      gap: 0.75rem;
     }
     
-    @media (max-width: 640px) {
-      bottom: 1rem;
+    // Medium-Large screens (1024px - 1199px)
+    @media (max-width: 1199px) and (min-width: 1024px) {
+      bottom: 1.75rem;
+      gap: 0.7rem;
+    }
+    
+    // Medium screens (768px - 1023px)
+    @media (max-width: 1023px) and (min-width: 768px) {
+      bottom: 1.5rem;
+      gap: 0.65rem;
+    }
+    
+    // Hide on small screens to save space
+    @media (max-width: 767px) {
       display: none;
     }
     
     span {
-      font-size: 0.75rem;
+      font-size: clamp(0.625rem, 1.2vw, 0.75rem);
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--gray);
       
-      @media (max-width: 768px) {
-        font-size: 0.625rem;
+      // Large screens (1200px+)
+      @media (min-width: 1200px) {
+        font-size: 0.75rem;
+      }
+      
+      // Medium-Large screens (1024px - 1199px)
+      @media (max-width: 1199px) and (min-width: 1024px) {
+        font-size: 0.7rem;
+      }
+      
+      // Medium screens (768px - 1023px)
+      @media (max-width: 1023px) and (min-width: 768px) {
+        font-size: 0.65rem;
       }
     }
     
