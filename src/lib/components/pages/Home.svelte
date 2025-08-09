@@ -216,23 +216,7 @@
         </a>
       </div>
       
-      <div class="hero-stats">
-        <div class="stat-item">
-          <span class="stat-number" data-value="50">0</span>
-          <span class="stat-label">{$_('home.projects_completed')}</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <span class="stat-number" data-value="5">0</span>
-          <span class="stat-label">{$_('home.experience_label')}</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <span class="stat-number" data-value="100">0</span>
-          <span class="stat-label">{$_('home.satisfaction')}</span>
-        </div>
-      </div>
-    </div>
+
     
     <div class="hero-visual">
       <div class="hero-visual-content">
