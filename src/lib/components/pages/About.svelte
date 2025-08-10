@@ -55,8 +55,6 @@
             <div class="tech-item">Python</div>
             <div class="tech-item">Rest Apis</div>
             <div class="tech-item">Data Visualization</div>
-            <div class="tech-item">Data Analysis</div>
-            <div class="tech-item">Matrix and Kpis</div>
           </div>
         </div>
       </div>
