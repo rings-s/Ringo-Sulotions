@@ -39,7 +39,7 @@
 	</div>
 
 	<!-- Container -->
-	<div class="relative z-10 container mx-auto px-6">
+	<div class="relative z-10 container mx-auto px-4">
 		<Reveal>
 			<div class="relative z-20 flex flex-col items-start space-y-6 text-left">
 				<!-- Company Badge -->
