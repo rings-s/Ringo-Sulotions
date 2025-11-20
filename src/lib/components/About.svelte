@@ -3,7 +3,7 @@
 	import { t } from 'svelte-i18n';
 </script>
 
-<section id="about" class="bg-secondary/30 py-24 mx-4 lg:mx-0">
+<section id="about" class="bg-secondary/30 py-24  lg:mx-0">
 	<div class="container mx-auto px-6">
 		<Reveal>
 			<h2 class="mb-12 text-center text-3xl font-bold md:text-4xl">{$t('about.title')}</h2>

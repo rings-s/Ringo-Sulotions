@@ -3,7 +3,7 @@
 	import { t } from 'svelte-i18n';
 </script>
 
-<section id="contact" class="relative overflow-hidden px-4 py-24">
+<section id="contact" class="relative overflow-hidden py-24">
 	<!-- Background decoration -->
 	<div
 		class="pointer-events-none absolute top-0 left-1/2 h-full w-full max-w-4xl -translate-x-1/2 rounded-full bg-primary/5 blur-[120px]"

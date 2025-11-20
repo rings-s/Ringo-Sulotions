@@ -22,7 +22,7 @@
 	];
 </script>
 
-<section id="services" class="py-24 px-4">
+<section id="services" class="py-24">
 	<div class="container mx-auto px-6">
 		<Reveal>
 			<div class="mx-auto mb-16 max-w-2xl text-center">

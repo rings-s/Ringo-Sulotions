@@ -26,7 +26,7 @@
 	];
 </script>
 
-<section id="projects" class="bg-secondary/30 py-24 px-4">
+<section id="projects" class="bg-secondary/30 py-24">
 	<div class="container mx-auto px-6">
 		<Reveal>
 			<div class="mb-12 flex flex-col items-end justify-between gap-4 md:flex-row">
