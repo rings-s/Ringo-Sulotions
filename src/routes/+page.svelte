@@ -1,22 +1,26 @@
-<script lang="ts">
-  import Home from '$lib/components/pages/Home.svelte';
-  import About from '$lib/components/pages/About.svelte';
-  import Services from '$lib/components/pages/Services.svelte';
-  import Contact from '$lib/components/pages/Contact.svelte';
+<script>
+  import Navbar from '$lib/components/Navbar.svelte';
+  import Hero from '$lib/components/Hero.svelte';
+  import About from '$lib/components/About.svelte';
+  import Services from '$lib/components/Services.svelte';
+  import Projects from '$lib/components/Projects.svelte';
+  import Contact from '$lib/components/Contact.svelte';
+  import Footer from '$lib/components/Footer.svelte';
 </script>
 
-<section id="home">
-  <Home />
-</section>
+<svelte:head>
+  <title>Ringo Solutions | Ahmed Bashir Portfolio</title>
+  <meta name="description" content="Portfolio of Ahmed Bashir (Ringo), Senior Developer and Founder of Ringo Solutions. Expert in Svelte, Django, and Rails." />
+</svelte:head>
 
-<section id="about">
+<Navbar />
+
+<main>
+  <Hero />
   <About />
-</section>
-
-<section id="services">
   <Services />
-</section>
-
-<section id="contact">
+  <Projects />
   <Contact />
-</section>
+</main>
+
+<Footer />

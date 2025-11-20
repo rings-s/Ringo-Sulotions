@@ -1,91 +1,96 @@
 {
-  "contact": {
-    "title": "Let's <span class=\"gradient-text\">Connect</span>",
-    "subtitle": "Ready to bring your digital vision to life? Get in touch and let's discuss your project.",
-    "phone": "Phone",
-    "email": "Email",
-    "location": "Location",
-    "location_text": "Available Worldwide",
-    "form_name": "Your Name",
-    "form_email": "Your Email",
-    "form_message": "Your Message",
-    "form_submit": "Send Message",
-    "form_submitting": "Sending...",
-    "success_message": "Message sent successfully!",
-    "error_message": "Failed to send message. Please try again."
-  },
-  "nav": {
-    "home": "Home",
+  "navbar": {
     "about": "About",
     "services": "Services",
-    "contact": "Contact"
+    "projects": "Projects",
+    "contact": "Contact Me"
   },
-  "home": {
-    "subtitle": "Welcome to",
-    "title_part1": "Ringo",
-    "title_part2": "Solutions",
-    "description": "Crafting digital experiences that push boundaries.<br/>Where innovation meets exceptional design.",
-    "cta_project": "Start Your Project",
-    "cta_services": "Explore Services",
-    "experience_number": "5+",
-    "experience_label": "Years Experience",
-    "projects_completed": "Projects Completed",
-    "scroll": "Scroll",
-    "what_we_do": "What We Do",
-    "services": {
-      "static": {
-        "title": "Static Websites",
-        "description": "Lightning-fast, SEO-optimized static sites"
-      },
-      "webapp": {
-        "title": "Web Applications",
-        "description": "Dynamic, scalable web apps with modern frameworks"
+  "hero": {
+    "company": "Ringo Solutions",
+    "title_prefix": "Digital",
+    "title_suffix": "Excellence",
+    "subtitle_prefix": "Crafting scalable solutions that transform",
+    "subtitle_suffix": "ideas into powerful digital experiences.",
+    "start_project": "Start Project",
+    "view_work": "View Work",
+    "scroll": "Scroll"
+  },
+  "about": {
+    "title": "About Me",
+    "p1_prefix": "With over",
+    "p1_highlight": "5 years of experience",
+    "p1_suffix": "in the software industry, I specialize in building robust, scalable web and mobile applications.",
+    "p2_prefix": "I currently work at",
+    "p2_highlight1": "Pineal Developers",
+    "p2_middle": "(Canada Branch), where I contribute to enterprise-level solutions. Simultaneously, I run my own agency,",
+    "p2_highlight2": "Ringo Solutions",
+    "p2_suffix": ", helping businesses transform ideas into reality.",
+    "p3_prefix": "My expertise spans across the full stack, from crafting pixel-perfect UIs with",
+    "p3_middle": "to architecting powerful backends with",
+    "p3_and": "and",
+    "stats": {
+      "years_exp": "Years Experience",
+      "projects_delivered": "Projects Delivered",
+      "client_satisfaction": "Client Satisfaction",
+      "support": "Support"
+    }
+  },
+  "services": {
+    "title": "My Services",
+    "subtitle": "Specialized in building modern digital solutions tailored to your business needs.",
+    "list": {
+      "web_dev": {
+        "title": "Web Development",
+        "description": "Full-stack web applications using Svelte, Django, and Ruby on Rails. High performance and SEO optimized."
       },
       "saas": {
         "title": "SaaS Solutions",
-        "description": "Complete software-as-a-service platforms"
+        "description": "Building scalable SaaS platforms with subscription management and multi-tenancy support."
       },
-      "api": {
-        "title": "REST APIs",
-        "description": "Robust, secure API development & integration"
+      "payment": {
+        "title": "Payment Integration",
+        "description": "Expert integration of Stripe for international payments and Moyasser for KSA region."
+      },
+      "mobile": {
+        "title": "Mobile Apps",
+        "description": "Cross-platform mobile applications that provide native-like experience and performance."
       }
     }
   },
-  "about": {
-    "title": "About <span class=\"gradient-text\">Us</span>",
-    "intro_name": "Ahmed Bashir",
-    "intro_role": "Founder & Lead Developer",
-    "story1": "Welcome to Ringo Solutions, a startup agency dedicated to crafting exceptional digital experiences. As a Sudanese developer with over 5 years of experience in web development, I've honed my skills across various technologies and frameworks.",
-    "story2": "This journey began with a simple belief: technology should empower businesses to reach their full potential. Today, Ringo Solutions stands as a testament to that vision, delivering cutting-edge solutions that drive growth and innovation.",
-    "expertise_title": "Our Expertise",
-    "experience_label": "Years Experience",
-    "projects_label": "Projects Completed",
-    "satisfaction_label": "Client Satisfaction",
-    "stack_title": "Technology Stack"
+  "projects": {
+    "title": "Featured Projects",
+    "subtitle": "A selection of my recent work.",
+    "view_all": "View all projects",
+    "view_details": "View Details",
+    "list": {
+      "auction": {
+        "title": "Online Auction Platform",
+        "description": "A real-time bidding platform with live updates, user dashboards, and secure payment processing."
+      },
+      "booking": {
+        "title": "Booking Application",
+        "description": "Comprehensive booking system for service-based businesses with calendar management and automated notifications."
+      },
+      "ecommerce_v1": {
+        "title": "E-Commerce Store V1",
+        "description": "Modern e-commerce solution featuring a fast frontend and robust Python backend for inventory management."
+      },
+      "ecommerce_v2": {
+        "title": "E-Commerce Store V2",
+        "description": "Alternative implementation using the Rails ecosystem, optimized for the KSA market with local payment integration."
+      }
+    }
   },
-  "services": {
-    "title": "Our <span class=\"gradient-text\">Services</span>",
-    "subtitle": "Comprehensive solutions for your digital needs",
-    "static": {
-      "title": "Static Websites",
-      "description": "Fast, secure, and SEO-optimized static sites built with modern frameworks.",
-      "features": ["Lightning-fast load times", "SEO optimization", "Responsive design", "CDN deployment"]
-    },
-    "webapp": {
-      "title": "Web Applications",
-      "description": "Dynamic, interactive web applications that scale with your business.",
-      "features": ["Custom functionality", "Real-time updates", "User authentication", "Database integration"]
-    },
-    "saas": {
-      "title": "SaaS Solutions",
-      "description": "Complete software-as-a-service platforms tailored to your needs.",
-      "features": ["Subscription management", "Multi-tenancy", "Analytics dashboard", "API integration"]
-    },
-    "api": {
-      "title": "REST APIs",
-      "description": "Robust and secure API development for seamless data exchange.",
-      "features": ["RESTful architecture", "Authentication & security", "Documentation", "Third-party integration"]
-    },
-    "cta": "Get Started →"
+  "contact": {
+    "title": "Let's Work Together",
+    "subtitle": "Have a project in mind? I'm always open to discussing new opportunities, whether it's a SaaS platform, mobile app, or custom software solution.",
+    "email_me": "Email Me",
+    "call_me": "Call Me",
+    "location": "Location",
+    "location_value": "KSA / Canada"
+  },
+  "footer": {
+    "rights": "Ringo Solutions. All rights reserved.",
+    "built_with": "Built with Svelte 5, Tailwind v4, and ❤️"
   }
 }
