@@ -16,6 +16,14 @@ const config = {
 		}),
 		prerender: {
 			handleMissingId: 'ignore',
+			handleHttpError: ({ path, referrer, message }) => {
+				// Ignore 404 errors for favicon
+				if (path === '/favicon.png') {
+					return;
+				}
+				// Throw error for other cases
+				throw new Error(message);
+			},
 			entries: ['*']
 		}
 	}
