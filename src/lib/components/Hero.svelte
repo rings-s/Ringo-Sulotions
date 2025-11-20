@@ -39,7 +39,7 @@
 	</div>
 
 	<!-- Container -->
-	<div class="relative z-10 container mx-4 mx-auto lg:mx-0">
+	<div class="relative z-10 container mx-auto px-6">
 		<Reveal>
 			<div class="md:p-16">
 				<div class="relative z-20 flex flex-col items-start space-y-6 text-left">
