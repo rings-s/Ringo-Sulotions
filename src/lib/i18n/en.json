@@ -90,7 +90,6 @@
     "location_value": "KSA / Canada"
   },
   "footer": {
-    "rights": "Ringo Solutions. All rights reserved.",
-    "built_with": "Built with Svelte 5, Tailwind v4, and ❤️"
+    "rights": "Ahmed Bashir Ali | Ringo Solutions. All rights reserved."
   }
 }

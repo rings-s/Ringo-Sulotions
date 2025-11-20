@@ -9,8 +9,5 @@
 			&copy; {year}
 			{$t('footer.rights')}
 		</p>
-		<p class="mt-2 text-xs text-muted-foreground">
-			{$t('footer.built_with')}
-		</p>
 	</div>
 </footer>
